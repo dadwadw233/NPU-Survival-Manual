@@ -39,4 +39,9 @@ public class CourseServiceImpl implements CourseService {
         return this.courseMapper.selectByParams(cno, cname, tname, dname, cclf, slimit);
     }
 
+    @Override
+    public int insertCourse(Course course){
+        return this.courseMapper.insertCourse(course);
+    }
+
 }

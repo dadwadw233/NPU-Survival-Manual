@@ -35,4 +35,9 @@ public interface CourseMapper {
             "AND slimit like CONCAT('%',#{slimit},'%')")
     List<Course>selectByParams(@Param("cno")String cno, @Param("cname")String cname, @Param("tname")String tname,
                                @Param("dname")String dname, @Param("cclf")String cclf, @Param("slimit")String slimit);
+
+
+    @Insert("INSERT INTO course VALUES(#{cno},#{cname},#{tname},#{dname},#{cclf},#{credit},#{csche}," +
+            "#{exam},#{length},#{slimit},#{campus},#{description})")
+    int insertCourse(Course course);
 }

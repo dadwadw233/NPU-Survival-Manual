@@ -3,6 +3,7 @@ package com.yyh.nwpusurvivalmanual.controller;
 import com.yyh.nwpusurvivalmanual.model.Course;
 import com.yyh.nwpusurvivalmanual.service.CourseService;
 import com.yyh.nwpusurvivalmanual.utils.response.Result;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,5 +46,24 @@ public class CourseController {
         }catch (Exception e){
             return Result.fail(e.getMessage(), 404, "course not found");
         }
+    }
+
+    @RequestMapping(value = "course/new", method = RequestMethod.POST)
+    @ResponseBody
+    public Result insertCourse(@RequestBody Course course
+                               ){
+        //主键必填交由前端处理，这里默认主键全部非空
+
+        //Course newCourse = new Course(course.getCno(), course.getCname(), tname, dname, cclf, credit, csche, exam, length, slimit, campus, description);
+        //return Result.success(course);/*
+        try {
+            courseService.insertCourse(course);
+            System.out.println("good");
+            return Result.success(null);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return Result.fail(null, 114, e.getMessage());
+        }
+
     }
 }

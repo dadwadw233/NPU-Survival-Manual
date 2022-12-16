@@ -24,4 +24,6 @@ public interface CourseService {
 
     List<Course> selectByParams(String cno, String cname, String tname,
                                 String dname, String cclf, String slimit);
+
+    int insertCourse(Course course);
 }
