@@ -1,6 +1,7 @@
 package com.yyh.nwpusurvivalmanual.service.impl;
 
 
+import com.yyh.nwpusurvivalmanual.entity.CnameWithLabel;
 import com.yyh.nwpusurvivalmanual.mapper.CourseMapper;
 import com.yyh.nwpusurvivalmanual.model.Course;
 import com.yyh.nwpusurvivalmanual.service.CourseService;
@@ -55,4 +56,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course>selectRegional(int start, int offset){return this.courseMapper.selectRegional(start, offset);}
+
+    @Override
+    public List<CnameWithLabel>selectCourseByLabel(String label){return this.courseMapper.selectCourseByLabel(label);}
 }

@@ -1,5 +1,6 @@
 package com.yyh.nwpusurvivalmanual.service;
 
+import com.yyh.nwpusurvivalmanual.entity.CnameWithLabel;
 import com.yyh.nwpusurvivalmanual.model.Course;
 import com.yyh.nwpusurvivalmanual.model.Manager;
 import org.apache.ibatis.annotations.Param;
@@ -34,4 +35,6 @@ public interface CourseService {
     int selectCourseNum();
 
     List<Course>selectRegional(int start, int offset);
+
+    List<CnameWithLabel>selectCourseByLabel(String label);
 }

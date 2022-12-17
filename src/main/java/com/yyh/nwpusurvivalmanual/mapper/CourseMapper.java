@@ -1,14 +1,17 @@
 package com.yyh.nwpusurvivalmanual.mapper;
+import com.yyh.nwpusurvivalmanual.entity.CnameWithLabel;
 import com.yyh.nwpusurvivalmanual.model.Course;
+import com.yyh.nwpusurvivalmanual.model.CourseLables;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 /**
- * 实现数据库中activity表与Activity类的映射
+ * 实现数据库中course表与course类的映射
  *
  * @author Yuanhong YU
  * @see Course
+ * @see CourseLables
  * @version 1.0
  */
 
@@ -53,4 +56,7 @@ public interface CourseMapper {
 
     @Select("SELECT * FROM course limit #{start},#{offset}")
     List<Course>selectRegional(@Param("start")int start, @Param("offset")int offset);
+
+    @Select("SELECT c.cname, l.label FROM course c, clabel l WHERE l.cno=c.cno AND l.label=#{label}")
+    List<CnameWithLabel>selectCourseByLabel(@Param("label")String label);
 }

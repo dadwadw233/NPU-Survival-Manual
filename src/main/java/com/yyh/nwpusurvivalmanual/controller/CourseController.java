@@ -1,5 +1,6 @@
 package com.yyh.nwpusurvivalmanual.controller;
 
+import com.yyh.nwpusurvivalmanual.entity.CnameWithLabel;
 import com.yyh.nwpusurvivalmanual.model.Course;
 import com.yyh.nwpusurvivalmanual.service.CourseService;
 import com.yyh.nwpusurvivalmanual.utils.response.Result;
@@ -105,6 +106,19 @@ public class CourseController {
             int a = Integer.parseInt(start);
             int b = Integer.parseInt(offset);
             data = this.courseService.selectRegional(a, b);
+            return Result.success(data);
+        }catch (Exception e){
+            return Result.fail(e.getMessage(), 404, "select error");
+        }
+    }
+
+
+    @RequestMapping(value = "course/get", method = RequestMethod.GET)
+    @ResponseBody
+    public Result selectCourseByLabel(@RequestParam(value = "label", defaultValue = "")String label){
+        List<CnameWithLabel> data;
+        try {
+            data = this.courseService.selectCourseByLabel(label);
             return Result.success(data);
         }catch (Exception e){
             return Result.fail(e.getMessage(), 404, "select error");
