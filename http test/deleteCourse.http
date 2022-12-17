@@ -1,0 +1,6 @@
+POST http://localhost:8088/course/delete
+Content-Type:application/json
+
+{
+  "cno": "114514"
+}

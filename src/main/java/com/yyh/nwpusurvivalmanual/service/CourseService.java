@@ -28,4 +28,6 @@ public interface CourseService {
     int insertCourse(Course course);
 
     int updateByCno(Course course);
+
+    int deleteByCno(String cno);
 }

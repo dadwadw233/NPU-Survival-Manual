@@ -3,6 +3,8 @@ package com.yyh.nwpusurvivalmanual.controller;
 import com.yyh.nwpusurvivalmanual.model.Course;
 import com.yyh.nwpusurvivalmanual.service.CourseService;
 import com.yyh.nwpusurvivalmanual.utils.response.Result;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -71,6 +73,20 @@ public class CourseController {
             return Result.success(null);
         }catch (Exception e){
             return  Result.fail(null, 115, e.getMessage());
+        }
+    }
+
+    @RequestMapping(value = "course/delete",method = RequestMethod.POST)
+    @ResponseBody
+    public Result deleteByCno(@RequestBody Course course){
+        if (this.courseService.selectByCno(course.getCno()) == null){
+            return Result.fail(null, 117, "has no course");
+        }
+        try {
+            this.courseService.deleteByCno(course.getCno());
+            return Result.success(null);
+        }catch (Exception e){
+            return Result.fail(null, 116, e.getMessage());
         }
     }
 }

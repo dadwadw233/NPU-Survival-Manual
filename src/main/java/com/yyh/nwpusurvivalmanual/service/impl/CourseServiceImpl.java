@@ -46,4 +46,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public int updateByCno(Course course){return this.courseMapper.updateByCno(course);}
+
+    @Override
+    public int deleteByCno(String cno){return this.courseMapper.deleteByCno(cno);}
 }
