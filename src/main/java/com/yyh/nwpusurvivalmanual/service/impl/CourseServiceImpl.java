@@ -44,4 +44,6 @@ public class CourseServiceImpl implements CourseService {
         return this.courseMapper.insertCourse(course);
     }
 
+    @Override
+    public int updateByCno(Course course){return this.courseMapper.updateByCno(course);}
 }

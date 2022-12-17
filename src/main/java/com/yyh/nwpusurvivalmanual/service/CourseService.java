@@ -26,4 +26,6 @@ public interface CourseService {
                                 String dname, String cclf, String slimit);
 
     int insertCourse(Course course);
+
+    int updateByCno(Course course);
 }

@@ -15,9 +15,9 @@ import java.util.List;
 @Mapper
 public interface CourseMapper {
     /**
-     * 读取activity表中的所有行，并映射为Activity对象
+     * 读取course表中的所有行，并映射为Course对象
      * @param
-     * @return 包含所有activity的Activity列表
+     * @return 包含所有Course的Course列表
      */
     @Select("SELECT * FROM course")
     List<Course>selectAll();
@@ -40,4 +40,11 @@ public interface CourseMapper {
     @Insert("INSERT INTO course VALUES(#{cno},#{cname},#{tname},#{dname},#{cclf},#{credit},#{csche}," +
             "#{exam},#{length},#{slimit},#{campus},#{description})")
     int insertCourse(Course course);
+
+    @Update("UPDATE course SET cname=#{cname},tname=#{tname},dname=#{dname},cclf=#{cclf},credit=#{credit}," +
+            "csche=#{csche},exam=#{exam},length=#{length},slimit=#{slimit},campus=#{campus},description=#{description} where" +
+            " cno=#{cno}")
+    int updateByCno(Course course);
+    @Delete("DELETE FROM course WHERE cno=#{cno}")
+    int deleteByCno(@Param("cno")String cno);
 }

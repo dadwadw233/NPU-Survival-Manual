@@ -53,9 +53,6 @@ public class CourseController {
     public Result insertCourse(@RequestBody Course course
                                ){
         //主键必填交由前端处理，这里默认主键全部非空
-
-        //Course newCourse = new Course(course.getCno(), course.getCname(), tname, dname, cclf, credit, csche, exam, length, slimit, campus, description);
-        //return Result.success(course);/*
         try {
             courseService.insertCourse(course);
             System.out.println("good");
@@ -64,6 +61,16 @@ public class CourseController {
             System.out.println(e.getMessage());
             return Result.fail(null, 114, e.getMessage());
         }
+    }
 
+    @RequestMapping(value = "course/update", method = RequestMethod.POST)
+    @ResponseBody
+    public Result updateByCno(@RequestBody Course course){
+        try {
+            this.courseService.updateByCno(course);
+            return Result.success(null);
+        }catch (Exception e){
+            return  Result.fail(null, 115, e.getMessage());
+        }
     }
 }
