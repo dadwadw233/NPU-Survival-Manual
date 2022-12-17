@@ -30,4 +30,8 @@ public interface CourseService {
     int updateByCno(Course course);
 
     int deleteByCno(String cno);
+
+    int selectCourseNum();
+
+    List<Course>selectRegional(int start, int offset);
 }

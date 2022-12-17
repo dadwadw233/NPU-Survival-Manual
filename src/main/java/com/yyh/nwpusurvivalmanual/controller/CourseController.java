@@ -89,4 +89,25 @@ public class CourseController {
             return Result.fail(null, 116, e.getMessage());
         }
     }
+
+    @RequestMapping(value = "course/getnum", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getCourseNum(){
+        return Result.success(this.courseService.selectCourseNum());
+    }
+
+    @RequestMapping(value = "course/limit", method = RequestMethod.GET)
+    @ResponseBody
+    public Result selectRegional(@RequestParam(value = "start", defaultValue = "")String start,
+                                 @RequestParam(value = "offset", defaultValue = "")String offset){
+        List<Course> data;
+        try {
+            int a = Integer.parseInt(start);
+            int b = Integer.parseInt(offset);
+            data = this.courseService.selectRegional(a, b);
+            return Result.success(data);
+        }catch (Exception e){
+            return Result.fail(e.getMessage(), 404, "select error");
+        }
+    }
 }

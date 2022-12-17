@@ -47,4 +47,10 @@ public interface CourseMapper {
     int updateByCno(Course course);
     @Delete("DELETE FROM course WHERE cno=#{cno}")
     int deleteByCno(@Param("cno")String cno);
+
+    @Select("SELECT COUNT(*) FROM course")
+    int selectCouseNum();
+
+    @Select("SELECT * FROM course limit #{start},#{offset}")
+    List<Course>selectRegional(@Param("start")int start, @Param("offset")int offset);
 }

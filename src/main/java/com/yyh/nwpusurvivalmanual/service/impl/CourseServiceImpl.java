@@ -49,4 +49,10 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public int deleteByCno(String cno){return this.courseMapper.deleteByCno(cno);}
+
+    @Override
+    public int selectCourseNum(){return this.courseMapper.selectCouseNum();}
+
+    @Override
+    public List<Course>selectRegional(int start, int offset){return this.courseMapper.selectRegional(start, offset);}
 }
