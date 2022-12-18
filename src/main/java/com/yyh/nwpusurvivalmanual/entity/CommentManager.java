@@ -1,4 +1,4 @@
-package com.yyh.nwpusurvivalmanual.model;
+package com.yyh.nwpusurvivalmanual.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,12 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class comment {
+public class CommentManager {
     private String cno;
 
     private int cid;
-
-    private String sno;
 
     private String time;
 
