@@ -4,6 +4,18 @@ NWPU-SURVIVAL-MANUAL旨在为西工大学生搭建一个集查询，分享，评
 
 
 ## 快速开始
+需要配置数据库设置(``src/main/resources/application.properties``)：
+
+```java
+server.port=8088
+
+#???????
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/nsm?characterEncoding=utf-8&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=2001929yyh
+```
+
 依赖详情可以查看根目录下的pom.xml,按照依赖要求安装相应环境之后可以直接运行`.\src\main\java\com.yyh.nwpusurvivalmanual\`下的Application即可开启后端。
 
 测试端口：`localhost:8088`
@@ -27,5 +39,4 @@ NWPU-SURVIVAL-MANUAL旨在为西工大学生搭建一个集查询，分享，评
 ``model``：存放在数据库中有直接映射关系的实体
 
 ``service``：服务接口
-
 
