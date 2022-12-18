@@ -25,7 +25,8 @@ public interface CourseService {
 
     List<Course> selectByParams(String cno, String cname, String tname,
                                 String dname, String cclf, String slimit);
-
+    List<Course> selectByParamsRegional(String cno, String cname, String tname,
+                                String dname, String cclf, String slimit, int start, int offset);
     int insertCourse(Course course);
 
     int updateByCno(Course course);

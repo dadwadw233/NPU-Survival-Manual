@@ -39,6 +39,13 @@ public interface CourseMapper {
     List<Course>selectByParams(@Param("cno")String cno, @Param("cname")String cname, @Param("tname")String tname,
                                @Param("dname")String dname, @Param("cclf")String cclf, @Param("slimit")String slimit);
 
+    @Select("SELECT * FROM course WHERE cno like CONCAT('%',#{cno},'%')" +
+            "AND cname like CONCAT('%',#{cname},'%') AND tname like CONCAT('%',#{tname},'%')" +
+            "AND dname like CONCAT('%',#{dname},'%') AND cclf like CONCAT('%',#{cclf},'%')" +
+            "AND slimit like CONCAT('%',#{slimit},'%') limit #{start},#{offset}")
+    List<Course>selectByParamsRegional(@Param("cno")String cno, @Param("cname")String cname, @Param("tname")String tname,
+                               @Param("dname")String dname, @Param("cclf")String cclf, @Param("slimit")String slimit,
+                                       @Param("start")int start, @Param("offset")int offset);
 
     @Insert("INSERT INTO course VALUES(#{cno},#{cname},#{tname},#{dname},#{cclf},#{credit},#{csche}," +
             "#{exam},#{length},#{slimit},#{campus},#{description})")

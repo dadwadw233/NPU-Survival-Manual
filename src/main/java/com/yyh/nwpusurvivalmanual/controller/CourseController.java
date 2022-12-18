@@ -51,6 +51,28 @@ public class CourseController {
         }
     }
 
+    @RequestMapping(value = "course/search/limit", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getCourseInfoByParamsRegional(@RequestParam(value = "cno", defaultValue = "")String cno,
+                                        @RequestParam(value = "cname", defaultValue = "")String cname,
+                                        @RequestParam(value = "tname", defaultValue = "")String tname,
+                                        @RequestParam(value = "dname", defaultValue = "")String dname,
+                                        @RequestParam(value = "cclf", defaultValue = "")String cclf,
+                                        @RequestParam(value = "slimit", defaultValue = "")String slimit,
+                                                @RequestParam(value = "start", defaultValue = "")String start,
+                                                @RequestParam(value = "offset", defaultValue = "")String offset){
+        List<Course>data;
+        try{
+            int a = Integer.parseInt(start);
+            int b = Integer.parseInt(offset);
+            data = courseService.selectByParamsRegional(cno, cname, tname, dname, cclf, slimit,a,b);
+            return Result.success(data);
+
+        }catch (Exception e){
+            return Result.fail(e.getMessage(), 404, "course not found");
+        }
+    }
+
     @RequestMapping(value = "course/new", method = RequestMethod.POST)
     @ResponseBody
     public Result insertCourse(@RequestBody Course course

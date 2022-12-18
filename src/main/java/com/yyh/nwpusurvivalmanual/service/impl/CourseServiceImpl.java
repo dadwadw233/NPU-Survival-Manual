@@ -41,6 +41,12 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public List<Course> selectByParamsRegional(String cno, String cname, String tname,
+                                        String dname, String cclf, String slimit, int start, int offset){
+        return this.courseMapper.selectByParamsRegional(cno, cname, tname, dname, cclf, slimit, start, offset);
+    }
+
+    @Override
     public int insertCourse(Course course){
         return this.courseMapper.insertCourse(course);
     }
