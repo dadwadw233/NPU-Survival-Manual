@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CnameWithLabel {
-    private String cname;
+    private String name;
 
-    private String label;
+    private String category;
 }

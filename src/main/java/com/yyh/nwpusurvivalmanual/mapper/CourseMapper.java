@@ -57,6 +57,17 @@ public interface CourseMapper {
     @Select("SELECT * FROM course limit #{start},#{offset}")
     List<Course>selectRegional(@Param("start")int start, @Param("offset")int offset);
 
-    @Select("SELECT c.cname, l.label FROM course c, clabel l WHERE l.cno=c.cno AND l.label=#{label}")
+    @Select("SELECT DISTINCT c.cname, l.label FROM course c, clabel l WHERE l.cno=c.cno AND l.label=#{label}")
+    @Results(id = "CouseWithLabel", value = {
+            @Result(property = "name", column = "cname"),
+            @Result(property = "category", column = "label")
+    })
     List<CnameWithLabel>selectCourseByLabel(@Param("label")String label);
+
+    @Select("select value from crelation where fcno=#{first} and scno=#{second};")
+    int getValueBetweenCourses(@Param("first")String first, @Param("second")String second);
+
+    @Select("select value from crelation r,course c1,course c2 where c1.cname=#{first} and c2.cname=#{second}" +
+            " and r.fcno=c1.cno and r.scno=c2.cno limit 1;")
+    int getValueBetweenCoursesByName(@Param("first")String first, @Param("second")String second);
 }

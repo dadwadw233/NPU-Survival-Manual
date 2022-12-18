@@ -59,4 +59,10 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<CnameWithLabel>selectCourseByLabel(String label){return this.courseMapper.selectCourseByLabel(label);}
+
+    @Override
+    public int getValueBetweenCourses(String first, String second){return this.courseMapper.getValueBetweenCourses(first, second);}
+
+    @Override
+    public int getValueBetweenCoursesByName(String first, String second){return this.courseMapper.getValueBetweenCoursesByName(first, second);}
 }

@@ -124,4 +124,30 @@ public class CourseController {
             return Result.fail(e.getMessage(), 404, "select error");
         }
     }
+
+    @RequestMapping(value = "course/relation", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getValueBetweenCourses(@RequestParam(value = "first", defaultValue = "")String first,
+                                         @RequestParam(value = "second", defaultValue = "")String second){
+        int data;
+        try {
+            data = this.courseService.getValueBetweenCourses(first, second);
+            return Result.success(data);
+        }catch (Exception e){
+            return Result.fail(e.getMessage(), 404, "select error");
+        }
+    }
+
+    @RequestMapping(value = "course/relation/name", method = RequestMethod.GET)
+    @ResponseBody
+    public Result getValueBetweenCoursesByName(@RequestParam(value = "first", defaultValue = "")String first,
+                                         @RequestParam(value = "second", defaultValue = "")String second){
+        int data;
+        try {
+            data = this.courseService.getValueBetweenCoursesByName(first, second);
+            return Result.success(data);
+        }catch (Exception e){
+            return Result.fail(e.getMessage(), 404, "select error");
+        }
+    }
 }

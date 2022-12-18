@@ -37,4 +37,8 @@ public interface CourseService {
     List<Course>selectRegional(int start, int offset);
 
     List<CnameWithLabel>selectCourseByLabel(String label);
+
+    int getValueBetweenCourses(String first, String second);
+
+    int getValueBetweenCoursesByName(String first, String second);
 }
