@@ -28,4 +28,15 @@ public interface CommentService {
     List<CommentUser>selectAllUserRegional(int start, int offset);
 
     List<CommentManager>selectAllManagerRegional(int start, int offset);
+
+    int selectCommentNum();
+
+    int insertComment(comment comment);
+
+    int deleteByKey(String cno, int cid);
+
+    int getCommentNumByCno(String cno);
+
+
+    int passComment(String cno, int cid);
 }

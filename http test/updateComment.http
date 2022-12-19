@@ -1,0 +1,7 @@
+POST http://localhost:8088/comment/pass
+Content-Type:application/json
+
+{
+  "cno": "U10M11011.02",
+  "cid": 3
+}

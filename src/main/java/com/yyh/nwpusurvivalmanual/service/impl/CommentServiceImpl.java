@@ -38,4 +38,27 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<CommentManager> selectAllManagerRegional(int start, int offset){return this.commentMapper.selectAllManagerRegional(start, offset);}
+
+    @Override
+    public int selectCommentNum(){
+        return this.commentMapper.selectCommentNum();
+    }
+    @Override
+    public int insertComment(comment comment){
+        return this.commentMapper.insertComment(comment);
+    }
+    @Override
+    public int deleteByKey(String cno, int cid){
+        return this.commentMapper.deleteByKey(cno, cid);
+    }
+
+    @Override
+    public int getCommentNumByCno(String cno){
+        return this.commentMapper.getCommentNumByCno(cno);
+    }
+
+    @Override
+    public int passComment(String cno, int cid){
+        return this.commentMapper.passComment(cno, cid);
+    }
 }
