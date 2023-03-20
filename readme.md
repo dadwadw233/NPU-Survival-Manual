@@ -13,7 +13,7 @@ server.port=8088
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/nsm?characterEncoding=utf-8&serverTimezone=UTC
 spring.datasource.username=root
-spring.datasource.password=2001929yyh
+spring.datasource.password=
 ```
 
 依赖详情可以查看根目录下的pom.xml,按照依赖要求安装相应环境之后可以直接运行`.\src\main\java\com.yyh.nwpusurvivalmanual\`下的Application即可开启后端。
